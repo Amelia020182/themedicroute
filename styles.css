@@ -78,3 +78,58 @@ body {
   /* position: absolute; top: 79px; bottom: 33px; left: 0; */
 }
 
+/* ———————————————————————— */
+/*  UCAT Verbal Layout Fix  */
+/* ———————————————————————— */
+
+/* 1) Make the two panes equal height */
+.main-content {
+  display: flex;
+  height: calc(100vh - 112px); /* header + footer = 112px */
+}
+
+/* 2) Left pane = passage */
+.question-pane {
+  flex: 7;                         /* 70% width */
+  background: #FFFFFF;             /* white */
+  border-right: 1px solid #D1D5DB; /* UCAT grey */
+  padding: 24px 32px;              /* UCAT padding */
+  overflow-y: auto;
+}
+
+/* 3) Right pane = question + flag + palette */
+.sidebar {
+  flex: 3;                         /* 30% width */
+  background: #F3F4F6;             /* UCAT light grey */
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* 4) Move the actual question inside the sidebar */
+.sidebar #question-text {
+  /* pull the question stem up into the sidebar */
+  display: block;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* 5) And hide it from the left pane when it’s verbal */
+.question-pane #question-text {
+  display: none;
+}
+
+/* 6) Show the passage only for Verbal Reasoning */
+.question-pane p {
+  display: block; /* ensure paragraphs show */
+}
+
+/* 7) Flag button and palette stay at top of sidebar */
+#flagBtn {
+  margin-bottom: 16px;
+}
+#palette {
+  margin-top: auto; /* push palette to bottom if you like */
+}
