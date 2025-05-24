@@ -18,8 +18,8 @@ body {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: 56px;
-  background: #FFFFFF;
-  border-bottom: 1px solid #D1D5DB;
+  background: #006DAA;
+  border-bottom: 1px solid rgb(187, 187, 187);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -31,11 +31,17 @@ body {
   font-weight: 600;
 }
 #timer {
-  font-family: monospace;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #d00;  /* red timer */
+}
+#timer {
+  color: #C62828;               
+  font-family: monospace;       
   font-size: 14px;
   font-weight: 600;
-  color: #C62828;
 }
+
 
 /* 4) Secondary toolbar (fixed) */
 .toolbar {
