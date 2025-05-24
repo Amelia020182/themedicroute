@@ -51,18 +51,51 @@ document.getElementById('nextBtn').onclick = () => {
   renderQuestion();
 };
 
-// Flag for review button
+// ...earlier code remains unchanged...
+
+function renderQuestion() {
+  const q = questions[current];
+  document.getElementById('section-name').textContent = q.section;
+  document.getElementById('question-counter').textContent =
+    `Q${current + 1} of ${questions.length}`;
+  document.getElementById('question-text').textContent = q.stem;
+
+  // render options
+  const form = document.getElementById('options-form');
+  form.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    form.insertAdjacentHTML('beforeend', `
+      <div class="form-check">
+        <input class="form-check-input" type="radio"
+               name="option" id="o${i}" value="${i}"
+               ${userAnswers[current] === i ? 'checked' : ''}>
+        <label class="form-check-label" for="o${i}">${opt}</label>
+      </div>
+    `);
+  });
+
+  // update palette buttons
+  document.querySelectorAll('#palette button').forEach((btn, i) => {
+    btn.classList.toggle('active', i === current);
+    btn.classList.toggle('review', flagged.has(i));
+  });
+
+  // **update the flag button styling for the current question**
+  const flagBtn = document.getElementById('flagBtn');
+  flagBtn.classList.toggle('flagged', flagged.has(current));
+}
+
+// ...initPalette, saveAnswer, prev/next unchanged...
+
+// simplified flag-button click handler:
 const flagBtn = document.getElementById('flagBtn');
 flagBtn.onclick = () => {
-  // Toggle the current question’s flag state
   if (flagged.has(current)) flagged.delete(current);
   else flagged.add(current);
 
-  // Update the flag button’s look
-  flagBtn.classList.toggle('flagged', flagged.has(current));
-
-  // Update the palette highlight
+  // re-render to update palette & button styling
   renderQuestion();
 };
+
 
  
