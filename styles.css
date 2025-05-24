@@ -133,3 +133,24 @@ body {
 #palette {
   margin-top: auto; /* push palette to bottom if you like */
 }
+/* —————————————————————— */
+/*  Secondary UCAT Toolbar */
+/* —————————————————————— */
+.toolbar {
+  height: 30px;                       /* same height as Pearson’s secondary bar */
+  background-color: #3468B3;          /* UCAT’s mid-blue */
+  color: #FFFFFF;                     /* white icons/text */
+  border-bottom: 1px solid #1F4E8A;   /* slightly darker border */
+}
+
+.toolbar-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.toolbar-item .material-icons {
+  font-size: 18px;
+  margin-right: 8px;
+}
