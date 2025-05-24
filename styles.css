@@ -189,3 +189,37 @@ body {
 .question-pane #question-text {
   display: block !important;
 }
+/* ========== Absolute Last Overrides for UCAT Dual-Header ========== */
+
+/* 1) Primary header remains 56px tall */
+.header {
+  height: 56px !important;
+}
+
+/* 2) Secondary toolbar: slim 24px bar */
+.toolbar {
+  height: 24px !important;
+  line-height: 24px !important;
+  font-size: 12px !important;
+  background-color: #3468B3 !important;
+  color: #FFFFFF !important;
+  padding: 0 20px !important;
+  border-bottom: 1px solid #1F4E8A !important;
+}
+
+/* Icon inside toolbar */
+.toolbar .material-icons {
+  font-size: 16px !important;
+  vertical-align: middle !important;
+  margin-right: 6px !important;
+}
+
+/* 3) Recompute content area height: 100vh minus 56px header, 24px toolbar, 56px footer = 136px */
+.main-content {
+  height: calc(100vh - 136px) !important;
+}
+
+/* 4) Ensure question text is visible again on the left pane */
+.question-pane #question-text {
+  display: block !important;
+}
