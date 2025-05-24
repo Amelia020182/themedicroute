@@ -25,6 +25,12 @@ body {
 .footer {
   border-bottom: none;
 }
+/* from Pearson’s #abe-titlebar.Primary */
+.header {
+  height: 56px;
+  background-color: rgb(52, 137, 245);
+  border-bottom: 1px solid rgb(187, 187, 187);
+}
 
 #section-name {
   font-weight: bold;
@@ -37,6 +43,12 @@ body {
   font-size: 1rem;
   font-weight: bold;
   color: #d00;  /* red timer */
+}
+#timer {
+  color: #C62828;               
+  font-family: monospace;       
+  font-size: 14px;
+  font-weight: 600;
 }
 
 /* Main content split */
