@@ -39,18 +39,30 @@ function saveAnswer(){
   const sel=document.querySelector('input[name="option"]:checked');
   userAnswers[current]=sel?+sel.value:null;
 }
-document.getElementById('prevBtn').onclick=()=>{ saveAnswer(); if(current>0) current--; renderQuestion(); };
-document.getElementById('nextBtn').onclick=()=>{ saveAnswer(); if(current<questions.length-1) current++; renderQuestion(); };
-const flagBtn = document.getElementById('flagBtn');
-flagBtn.onclick = () => {
-  if (flagged.has(current)) flagged.delete(current);
-  else flagged.add(current);
-
-  // toggle the 'flagged' class on the button itself
-  flagBtn.classList.toggle('flagged', flagged.has(current));
-
+// Navigation buttons
+document.getElementById('prevBtn').onclick = () => {
+  saveAnswer();
+  if (current > 0) current--;
+  renderQuestion();
+};
+document.getElementById('nextBtn').onclick = () => {
+  saveAnswer();
+  if (current < questions.length - 1) current++;
   renderQuestion();
 };
 
-document.getElementById('flagBtn').onclick = () => {
+// Flag for review button
+const flagBtn = document.getElementById('flagBtn');
+flagBtn.onclick = () => {
+  // Toggle the current question’s flag state
+  if (flagged.has(current)) flagged.delete(current);
+  else flagged.add(current);
+
+  // Update the flag button’s look
+  flagBtn.classList.toggle('flagged', flagged.has(current));
+
+  // Update the palette highlight
+  renderQuestion();
+};
+
  
