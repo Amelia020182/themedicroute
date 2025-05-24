@@ -41,4 +41,16 @@ function saveAnswer(){
 }
 document.getElementById('prevBtn').onclick=()=>{ saveAnswer(); if(current>0) current--; renderQuestion(); };
 document.getElementById('nextBtn').onclick=()=>{ saveAnswer(); if(current<questions.length-1) current++; renderQuestion(); };
-document.getElementById('flagBtn').onclick=()=>{ flagged.has(current)? flagged.delete(current): flagged.add(current); renderQuestion(); };
+const flagBtn = document.getElementById('flagBtn');
+flagBtn.onclick = () => {
+  if (flagged.has(current)) flagged.delete(current);
+  else flagged.add(current);
+
+  // toggle the 'flagged' class on the button itself
+  flagBtn.classList.toggle('flagged', flagged.has(current));
+
+  renderQuestion();
+};
+
+document.getElementById('flagBtn').onclick = () => {
+ 
