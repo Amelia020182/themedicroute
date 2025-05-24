@@ -1,0 +1,14 @@
+[
+  {
+    "section": "Verbal Reasoning",
+    "stem": "Which statement is most supported by the passage?",
+    "options": ["A", "B", "C", "D"],
+    "answer": 1
+  },
+  {
+    "section": "Decision Making",
+    "stem": "If A > B and B > C, who is the smallest?",
+    "options": ["A", "B", "C", "Cannot decide"],
+    "answer": 2
+  }
+]
