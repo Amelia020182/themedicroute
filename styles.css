@@ -223,3 +223,56 @@ body {
 .question-pane #question-text {
   display: block !important;
 }
+/* ————————————————————————————————————————————— */
+/*  FIX: Dual Fixed Headers + No Extra Scrolling CSS  */
+/* ————————————————————————————————————————————— */
+
+/* 1) Primary header fixed at top */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px !important;
+  z-index: 1000;
+}
+
+/* 2) Secondary toolbar fixed directly under it */
+.toolbar {
+  position: fixed;
+  top: 56px;               /* exactly below the primary header */
+  left: 0;
+  right: 0;
+  height: 24px !important;
+  background-color: #005EA6 !important;  /* exact UCAT blue */
+  border-bottom: 1px solid #004C87 !important;
+  line-height: 24px !important;
+  padding: 0 20px !important;
+  font-size: 12px !important;
+  z-index: 999;
+}
+
+/* 3) Main content pushed down and sized to fit */
+.main-content {
+  display: flex;
+  position: relative;
+  top: 80px;                              /* 56 + 24 */
+  height: calc(100vh - 80px - 56px) !important;
+  /* Explanation: viewport minus headers (80px) minus footer (56px) */
+  overflow: hidden;
+}
+
+/* 4) Left pane scrolls internally */
+.question-pane {
+  overflow-y: auto !important;
+}
+
+/* 5) Footer fixed at bottom */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px !important;
+  z-index: 1000;
+}
