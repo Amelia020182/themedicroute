@@ -59,28 +59,22 @@ body {
 
 /* Question pane styling */
 .question-pane {
-  width: 70%;
-  background-color: #fff;
-  padding: 20px;
-  overflow-y: auto;
-  border-right: 1px solid #ccc;
-}
-#question-text {
-  margin-bottom: 20px;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-.form-check {
-  margin-bottom: 12px;
-}
-.form-check-input {
-  margin-right: 10px;
+  /* Fill the left side, just like UCAT */
+  width: 543px;               /* or 70% of container, whichever you prefer */
+  height: inherit !important; /* match the parent’s height */
+
+  /* Background & border */
+  background-color: #FFFFFF;                /* rgb(255,255,255) */
+  border: 1px solid #BBBBBB;                /* rgb(187,187,187) */
+
+  /* No extra spacing inside */
+  padding: 0;                               /* exactly 0px */
+
+  /* Hide overflow if content exceeds pane */
+  overflow: hidden;
+  
+  /* Positioning (absolute in UCAT, but flex container works too) */
+  /* If you want the exact absolute setup: */
+  /* position: absolute; top: 79px; bottom: 33px; left: 0; */
 }
 
-/* Sidebar (palette + flag) */
-.sidebar {
-/* flagged state on the button itself */
-#flagBtn.flagged {
-  background-color: #ffc107 !important;
-  color: #000 !important;
-}
