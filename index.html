@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UCAT Mock Exam</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Optional: Bootstrap for basic reset/grid -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header d-flex justify-content-between align-items-center px-3 py-2">
+    <div id="section-name">Loading…</div>
+    <div id="question-counter">Q 1 of 10</div>
+    <div id="timer">00:00</div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <div class="d-flex main-content">
+    <!-- Question Pane -->
+    <div class="question-pane p-3">
+      <div id="question-text">Loading question…</div>
+      <form id="options-form"></form>
+    </div>
+
+    <!-- Sidebar (Palette + Flag) -->
+    <aside class="sidebar p-3 border-start">
+      <button id="flagBtn" class="btn btn-outline-warning w-100 mb-3">
+        ⚑ Flag for review
+      </button>
+      <div id="palette" class="d-flex flex-wrap gap-2">
+        <!-- Numbered buttons will go here -->
+      </div>
+    </aside>
+  </div>
+
+  <!-- FOOTER NAVIGATION -->
+  <footer class="footer d-flex justify-content-between align-items-center px-3 py-2">
+    <button id="prevBtn" class="btn btn-secondary">Previous</button>
+    <button id="nextBtn" class="btn btn-primary">Next</button>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
