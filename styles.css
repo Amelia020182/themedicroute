@@ -1,13 +1,69 @@
-body, h1, h2, h3, p, ul, li, form { margin: 0; padding: 0; }
-body { font-family: Arial, sans-serif; background: #f8f9fa; }
-.header, .footer { background: #ffffff; border-bottom: 1px solid #dee2e6; }
-.footer { border-top: 1px solid #dee2e6; }
-.main-content { height: calc(100vh - 112px); }
-.question-pane { width: 70%; overflow-y: auto; background: #ffffff; }
-.sidebar { width: 30%; background: #f1f3f5; overflow-y: auto; }
-#palette button { width: 3rem; height: 3rem; border: 1px solid #6c757d; background: #ffffff; font-weight: bold; }
-#palette button.active { background: #0d6efd; color: #fff; }
-#palette button.review { background: #ffc107; }
-#timer { font-weight: bold; font-size: 1.1rem; }
-#question-text { margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.4; }
-.form-check-label { cursor: pointer; }
+/* Reset margins/padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body & fonts */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;  /* light grey background */
+  color: #333;
+}
+
+/* Header & footer bars */
+.header, .footer {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+.footer {
+  border-bottom: none;
+}
+
+#section-name {
+  font-weight: bold;
+  font-size: 1rem;
+}
+#question-counter {
+  font-size: 0.9rem;
+}
+#timer {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #d00;  /* red timer */
+}
+
+/* Main content split */
+.main-content {
+  display: flex;
+  height: calc(100vh - 120px); /* total viewport minus header+footer */
+}
+
+/* Question pane styling */
+.question-pane {
+  width: 70%;
+  background-color: #fff;
+  padding: 20px;
+  overflow-y: auto;
+  border-right: 1px solid #ccc;
+}
+#question-text {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.form-check {
+  margin-bottom: 12px;
+}
+.form-check-input {
+  margin-right: 10px;
+}
+
+/* Sidebar (palette + flag) */
+.sidebar {
