@@ -14,7 +14,7 @@ body {
 
 /* Header & footer bars */
 .header, .footer {
-  background-color: #fff;
+  background-color: #006DAA;
   border-bottom: 1px solid #ccc;
   border-top: 1px solid #ccc;
   height: 60px;
@@ -28,7 +28,7 @@ body {
 /* from Pearson’s #abe-titlebar.Primary */
 .header {
   height: 56px;
-  background-color: rgb(52, 137, 245);
+  background-color: #006DAA;
   border-bottom: 1px solid rgb(187, 187, 187);
 }
 
