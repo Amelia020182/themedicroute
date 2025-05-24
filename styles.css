@@ -154,3 +154,38 @@ body {
   font-size: 18px;
   margin-right: 8px;
 }
+/* ——————————————————————— */
+/*  Fix for dual headers  */
+/* ——————————————————————— */
+
+/* 1) Secondary toolbar sizing */
+.toolbar {
+  height: 24px;                    /* UCAT’s secondary bar is only ~24px tall */
+  line-height: 24px;               /* vertically center text in that space */
+  background-color: #3468B3;       /* your UCAT blue */
+  color: #FFFFFF;                  /* white text/icon */
+  padding: 0 20px;                 /* only horizontal padding */
+  border-bottom: 1px solid #1F4E8A;
+  font-size: 12px;                 /* smaller font */
+  font-weight: 500;
+}
+
+/* shrink the icon to match */
+.toolbar-item .material-icons {
+  font-size: 16px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* 2) Recalculate the main content height
+   Now header (56px) + toolbar (24px) + footer (56px) = 136px total */
+.main-content {
+  display: flex;
+  height: calc(100vh - 136px) !important;
+}
+
+/* 3) (Optional) remove any rule that hides #question-text
+   so your questions actually show up in the left pane again */
+.question-pane #question-text {
+  display: block !important;
+}
