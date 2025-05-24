@@ -1,278 +1,148 @@
-/* Reset margins/padding */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* =============================
+   UCAT-Exact Mock Exam CSS
+   ============================= */
 
-/* Body & fonts */
+/* 1) Reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+/* 2) Body */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;  /* light grey background */
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #F5F5F5;
   color: #333;
+  overflow: hidden;
 }
 
-/* Header & footer bars */
-.header, .footer {
-  background-color: #006DAA;
-  border-bottom: 1px solid #ccc;
-  border-top: 1px solid #ccc;
-  height: 60px;
+/* 3) Primary header (fixed) */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: #FFFFFF;
+  border-bottom: 1px solid #D1D5DB;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 20px;
+  z-index: 1000;
 }
-.footer {
-  border-bottom: none;
-}
-/* from Pearson’s #abe-titlebar.Primary */
-.header {
-  height: 56px;
-  background-color: #006DAA;
-  border-bottom: 1px solid rgb(187, 187, 187);
-}
-
-#section-name {
-  font-weight: bold;
-  font-size: 1rem;
-}
-#question-counter {
-  font-size: 0.9rem;
-}
-#timer {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #d00;  /* red timer */
-}
-#timer {
-  color: #C62828;               
-  font-family: monospace;       
+#section-name, #question-counter {
   font-size: 14px;
   font-weight: 600;
 }
-
-/* Main content split */
-.main-content {
-  display: flex;
-  height: calc(100vh - 120px); /* total viewport minus header+footer */
+#timer {
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: #C62828;
 }
 
-/* Question pane styling */
-.question-pane {
-  /* Fill the left side, just like UCAT */
-  width: 543px;               /* or 70% of container, whichever you prefer */
-  height: inherit !important; /* match the parent’s height */
+/* 4) Secondary toolbar (fixed) */
+.toolbar {
+  position: fixed;
+  top: 56px; left: 0; right: 0;
+  height: 24px;
+  background: #005EA6;
+  border-bottom: 1px solid #004C87;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #FFF;
+  z-index: 999;
+}
+.toolbar .material-icons {
+  font-size: 16px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
 
-  /* Background & border */
-  background-color: #FFFFFF;                /* rgb(255,255,255) */
-  border: 1px solid #BBBBBB;                /* rgb(187,187,187) */
-
-  /* No extra spacing inside */
-  padding: 0;                               /* exactly 0px */
-
-  /* Hide overflow if content exceeds pane */
+/* 5) Main content */
+.main-content {
+  position: absolute;
+  top: 80px;    /* 56 + 24 */
+  bottom: 56px; /* footer height */
+  left: 0; right: 0;
+  display: flex;
   overflow: hidden;
-  
-  /* Positioning (absolute in UCAT, but flex container works too) */
-  /* If you want the exact absolute setup: */
-  /* position: absolute; top: 79px; bottom: 33px; left: 0; */
 }
 
-/* ———————————————————————— */
-/*  UCAT Verbal Layout Fix  */
-/* ———————————————————————— */
-
-/* 1) Make the two panes equal height */
-.main-content {
-  display: flex;
-  height: calc(100vh - 112px); /* header + footer = 112px */
-}
-
-/* 2) Left pane = passage */
+/* 6) Question pane */
 .question-pane {
-  flex: 7;                         /* 70% width */
-  background: #FFFFFF;             /* white */
-  border-right: 1px solid #D1D5DB; /* UCAT grey */
-  padding: 24px 32px;              /* UCAT padding */
+  flex: 7;
+  background: #FFF;
+  border-right: 1px solid #D1D5DB;
+  padding: 24px 32px;
   overflow-y: auto;
 }
-
-/* 3) Right pane = question + flag + palette */
-.sidebar {
-  flex: 3;                         /* 30% width */
-  background: #F3F4F6;             /* UCAT light grey */
-  padding: 24px 32px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-/* 4) Move the actual question inside the sidebar */
-.sidebar #question-text {
-  /* pull the question stem up into the sidebar */
-  display: block;
-  margin-bottom: 16px;
+#question-text {
+  margin-bottom: 24px;
   font-size: 16px;
   line-height: 1.5;
 }
 
-/* 5) And hide it from the left pane when it’s verbal */
-.question-pane #question-text {
-  display: none;
+/* 7) Sidebar (questions / flag / palette) */
+.sidebar {
+  flex: 3;
+  background: #F3F4F6;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
 }
-
-/* 6) Show the passage only for Verbal Reasoning */
-.question-pane p {
-  display: block; /* ensure paragraphs show */
+.sidebar #question-text {
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 1.5;
 }
-
-/* 7) Flag button and palette stay at top of sidebar */
 #flagBtn {
   margin-bottom: 16px;
 }
+#flagBtn.flagged {
+  background: #FBBF24 !important;
+  color: #000 !important;
+}
 #palette {
-  margin-top: auto; /* push palette to bottom if you like */
+  margin-top: auto;
+  display: flex; flex-wrap: wrap; gap: 8px;
 }
-/* —————————————————————— */
-/*  Secondary UCAT Toolbar */
-/* —————————————————————— */
-.toolbar {
-  height: 30px;                       /* same height as Pearson’s secondary bar */
-  background-color: #5E98D9;          /* UCAT’s mid-blue */
-  color: #FFFFFF;                     /* white icons/text */
-  border-bottom: 1px solid #1F4E8A;   /* slightly darker border */
-}
-
-.toolbar-item {
-  display: flex;
-  align-items: center;
+#palette button {
+  width: 36px; height: 36px;
+  border: 1px solid #9CA3AF;
+  background: #FFF;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 0;
+}
+#palette button.active {
+  background: #2563EB;
+  color: #FFF;
+}
+#palette button.review {
+  background: #FBBF24;
+  color: #000;
 }
 
-.toolbar-item .material-icons {
-  font-size: 18px;
-  margin-right: 8px;
-}
-/* ——————————————————————— */
-/*  Fix for dual headers  */
-/* ——————————————————————— */
-
-/* 1) Secondary toolbar sizing */
-.toolbar {
-  height: 24px;                    /* UCAT’s secondary bar is only ~24px tall */
-  line-height: 24px;               /* vertically center text in that space */
-  background-color: #3468B3;       /* your UCAT blue */
-  color: #FFFFFF;                  /* white text/icon */
-  padding: 0 20px;                 /* only horizontal padding */
-  border-bottom: 1px solid #1F4E8A;
-  font-size: 12px;                 /* smaller font */
-  font-weight: 500;
-}
-
-/* shrink the icon to match */
-.toolbar-item .material-icons {
-  font-size: 16px;
-  vertical-align: middle;
-  margin-right: 6px;
-}
-
-/* 2) Recalculate the main content height
-   Now header (56px) + toolbar (24px) + footer (56px) = 136px total */
-.main-content {
-  display: flex;
-  height: calc(100vh - 136px) !important;
-}
-
-/* 3) (Optional) remove any rule that hides #question-text
-   so your questions actually show up in the left pane again */
-.question-pane #question-text {
-  display: block !important;
-}
-/* ========== Absolute Last Overrides for UCAT Dual-Header ========== */
-
-/* 1) Primary header remains 56px tall */
-.header {
-  height: 56px !important;
-}
-
-/* 2) Secondary toolbar: slim 24px bar */
-.toolbar {
-  height: 24px !important;
-  line-height: 24px !important;
-  font-size: 12px !important;
-  background-color: #3468B3 !important;
-  color: #FFFFFF !important;
-  padding: 0 20px !important;
-  border-bottom: 1px solid #1F4E8A !important;
-}
-
-/* Icon inside toolbar */
-.toolbar .material-icons {
-  font-size: 16px !important;
-  vertical-align: middle !important;
-  margin-right: 6px !important;
-}
-
-/* 3) Recompute content area height: 100vh minus 56px header, 24px toolbar, 56px footer = 136px */
-.main-content {
-  height: calc(100vh - 136px) !important;
-}
-
-/* 4) Ensure question text is visible again on the left pane */
-.question-pane #question-text {
-  display: block !important;
-}
-/* ————————————————————————————————————————————— */
-/*  FIX: Dual Fixed Headers + No Extra Scrolling CSS  */
-/* ————————————————————————————————————————————— */
-
-/* 1) Primary header fixed at top */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 56px !important;
-  z-index: 1000;
-}
-
-/* 2) Secondary toolbar fixed directly under it */
-.toolbar {
-  position: fixed;
-  top: 56px;               /* exactly below the primary header */
-  left: 0;
-  right: 0;
-  height: 24px !important;
-  background-color: #005EA6 !important;  /* exact UCAT blue */
-  border-bottom: 1px solid #004C87 !important;
-  line-height: 24px !important;
-  padding: 0 20px !important;
-  font-size: 12px !important;
-  z-index: 999;
-}
-
-/* 3) Main content pushed down and sized to fit */
-.main-content {
-  display: flex;
-  position: relative;
-  top: 80px;                              /* 56 + 24 */
-  height: calc(100vh - 80px - 56px) !important;
-  /* Explanation: viewport minus headers (80px) minus footer (56px) */
-  overflow: hidden;
-}
-
-/* 4) Left pane scrolls internally */
-.question-pane {
-  overflow-y: auto !important;
-}
-
-/* 5) Footer fixed at bottom */
+/* 8) Footer (fixed) */
 .footer {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 56px !important;
+  bottom: 0; left: 0; right: 0;
+  height: 56px;
+  background: #FFF;
+  border-top: 1px solid #D1D5DB;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
   z-index: 1000;
 }
+#prevBtn, #nextBtn {
+  font-size: 14px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 0;
+}
+#prevBtn { background: #6C757D; color: #FFF; }
+#nextBtn { background: #2563EB; color: #FFF; }
+#prevBtn:hover, #nextBtn:hover { opacity: 0.9; }
