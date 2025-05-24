@@ -67,3 +67,8 @@ body {
 
 /* Sidebar (palette + flag) */
 .sidebar {
+/* flagged state on the button itself */
+#flagBtn.flagged {
+  background-color: #ffc107 !important;
+  color: #000 !important;
+}
