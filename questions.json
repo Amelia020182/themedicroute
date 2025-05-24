@@ -1,14 +1,35 @@
 [
   {
     "section": "Verbal Reasoning",
-    "stem": "Which statement is most supported by the passage?",
-    "options": ["A", "B", "C", "D"],
-    "answer": 1
+    "stem": "Passage: “All cats are mammals. Some mammals are nocturnal.”\n\nQuestion: Which statement is most strongly supported by the passage?",
+    "options": [
+      "All cats are nocturnal.",
+      "Some mammals are cats.",
+      "Some cats might be nocturnal.",
+      "No mammals are cats."
+    ],
+    "answer": 2
   },
   {
     "section": "Decision Making",
-    "stem": "If A > B and B > C, who is the smallest?",
-    "options": ["A", "B", "C", "Cannot decide"],
+    "stem": "Tom is older than Sue. Sue is older than Ken. Who is youngest?",
+    "options": [
+      "Tom",
+      "Sue",
+      "Ken",
+      "Cannot decide"
+    ],
     "answer": 2
+  },
+  {
+    "section": "Quantitative Reasoning",
+    "stem": "If 3x + 2 = 14, what is x?",
+    "options": [
+      "2",
+      "4",
+      "6",
+      "12"
+    ],
+    "answer": 1
   }
 ]
